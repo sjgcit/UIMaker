@@ -1,0 +1,335 @@
+#
+# sjgpanel.in
+#
+# $Id: sjgpanel.in,v 1.23 2014/12/18 17:55:40 sjg Exp $
+#
+# (c) Stephen Geary, Aug 2013
+#
+# Test application UImaker file
+#
+
+loc.title
+UIM Test Application
+
+Card-1
+Show Card One
+
+Card-2
+Show Card Two
+
+Card-3
+Show Card Three
+
+Card-4
+Show Card Four
+
+Card-5
+Show Card Five
+
+Card-6
+Show Card Six
+
+Card-7
+Show Card Seven
+
+alpha
+Open UIM Script
+
+beta
+<html>Beta ( &beta; )
+
+gamma
+<html>Gamma ( &gamma; )
+
+delta
+<html> Delta ( &delta; )
+
+one
+<html><font color="red">One</font>
+
+two
+<html><font color="green">Two</font>
+
+three
+<html><font color="blue">Three</font>
+
+four
+<html><font color="#DB7093">Four</font>
+
+rad-1
+One - Not in button group
+
+rad-2
+Two - First in button group
+
+rad-3
+Three - Second in button group
+
+rad-4
+Four - Third in button group
+
+rad-5
+Five - not in button group
+
+check-1
+One - Not in button group
+
+check-2
+Two - First in button group
+
+check-3
+Three - Second in button group
+
+check-4
+Four - Third in button group
+
+check-5
+Five - not in button group
+
+tab-1
+Tab One
+
+tab-2
+Tab Two
+
+tab-3
+Tab Three
+
+tab-4
+Tab Four
+
+htmlimage
+<html><img src='jar:file:uimtest.jar!/resources/chalet.jpg'>
+
+m-file
+File
+
+m-open
+Open File
+
+m-image
+Load an image
+
+m-close
+Close File
+
+m-exit
+Exit Application
+
+m-wibble
+Wibble Me
+
+m-wibble-1
+Wibble You
+
+m-wibble-2
+Wibble Them
+
+m-help
+Help
+
+m-about
+About
+
+end-table
+
+
+titledborder UIM-test-rig
+
+
+
+
+menubar
+{
+    m-file
+    {
+        m-image act-load-image
+        m-close m-act-close
+        m-exit m-act-exit 
+    }
+    
+    m-wibble
+    {
+        m-wibble-1 m-act-1
+        m-wibble-2 m-act-2
+        "Just a wibble" m-act-3
+        "Just \"wibble\" me" m-act-4
+    }
+    
+    m-help
+    {
+        m-help m-act-help
+        m-about m-act-about
+    }
+}
+
+north
+
+    jpanel
+    {
+        west
+        
+            jgrid 3 0
+            {
+                jbutton Card-1 card-1
+                jbutton Card-2 card-2
+                jbutton Card-3 card-3
+                jbutton Card-4 card-4
+                jbutton Card-5 card-5
+                jbutton Card-6 card-6
+                jbutton Card-7 card-7
+            }
+    }
+
+center
+
+    jcard.cardpanel
+    {
+        size 500 500
+
+        jpanel.card-1
+        {
+            east
+
+            jpanel
+            {
+                north
+                
+                jgrid 2 2
+                {
+                    jbutton alpha act-1
+                    jbutton beta act-2
+                    jbutton gamma act-3
+                    jbutton delta act-4
+                }
+            }
+        }
+        
+        jpanel.card-2
+        {
+            east
+
+            jpanel
+            {
+                north
+                
+                jgrid 2 2
+                {
+                    jbutton one act-5
+                    jbutton two act-6
+                    jbutton three act-7
+                    jbutton four act-8
+                }
+            }
+        }
+        
+        jpanel.card-3
+        {
+            north
+            
+            jgrid 0 1
+            {
+                jradio rad-1
+            
+                bg-start.radiogroup
+            
+                jradio rad-2
+                jradio rad-3
+                jradio rad-4
+                
+                bg-end
+                
+                jradio rad-5
+            }
+        }
+        
+        jpanel.card-4
+        {
+            north
+            
+            jgrid 0 1
+            {
+                jcheckbox check-1
+            
+                bg-start.checkboxgroup
+            
+                jcheckbox check-2
+                jcheckbox check-3
+                jcheckbox check-4
+                
+                bg-end
+                
+                jcheckbox check-5
+            }
+        }
+        
+        jpanel.card-5
+        {
+            center
+            
+                jimage.img
+            
+            east
+            
+            jpanel
+            {
+                north
+            
+                jgrid 0 1
+                {
+                    jbutton "Split Button 1" act-10
+                    jbutton "Split Button 2" act-11
+                    jbutton "Split Button 3" act-12
+                }
+            }
+        }
+        
+        jgrid.card-6 1 1
+        {
+            jdirlist jdlclick
+        }
+        
+        jtabs.card-7
+        {
+            jpanel.tab-1
+            {
+                north
+                
+                jgrid 0 1
+                {
+                    jbutton "Tab Button 1" act-13
+                    jbutton "Tab Button 2" act-14
+                    jbutton "Tab Button 3" act-15
+                }
+            }
+
+            jpanel.tab-2
+            {
+                north
+                
+                jgrid 0 1
+                {
+                    jbutton "Tab Button 4" act-16
+                    jbutton "Tab Button 5" act-17
+                    jbutton "Tab Button 6" act-18
+                }
+            }
+
+            jpanel.tab-3
+            {
+                north
+                
+                jgrid 0 1
+                {
+                    jbutton "Tab Button 7" act-19
+                    jbutton "Tab Button 8" act-20
+                    jbutton "Tab Button 9" act-21
+                }
+            }
+            
+            jlabel.tab-4 htmlimage
+        }
+        
+    }
+
+
